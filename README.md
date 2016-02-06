@@ -13,6 +13,7 @@ A simple and beautiful WordPress theme.
 - 使用Bootstrap框架开发  
 - 响应式界面，双栏  
 - 极简主义、清爽、没有过多设置  
+- 炫(la)酷(ji)的特效
 
 # LICENSE  
 MIT [RocketHcgs](http://www.rhw-team.com/)
