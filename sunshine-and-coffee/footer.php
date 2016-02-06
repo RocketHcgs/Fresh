@@ -24,7 +24,7 @@
         </div>
         <div class="panel-footer clearfix footer-div">
           &copy; 2016 <a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a> | Powered by WordPress.
-          <span class="pull-right">Theme Sunshine and coffee. | Based on <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>.</span>
+          <span class="pull-right">Theme <a href="https://github.com/RocketHcgs/Sunshine-and-coffee" target="_blank">Sunshine and coffee</a>. | Based on <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>.</span>
         </div>
       </div>
     </footer>
