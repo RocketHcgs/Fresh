@@ -191,6 +191,32 @@ a.edit-link {
 	margin-top:0;
 }
 
+#respond ul {
+	padding: 0;
+	list-style: none;
+}
+
+#respond ul li.comment {
+    position: relative;
+    padding: 20px 0;
+    margin: 0 25px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.comments-author {
+	margin-bottom:10px;
+}
+
+.comment-content a {
+	font-size:13px;
+	color:#777;
+}
+
+#respond ul li ul.children {
+	margin: 15px 0 -20px 0;
+    padding: 0 0 0 5px;
+}
+
 .widget > form {
 	padding:15px;
 }

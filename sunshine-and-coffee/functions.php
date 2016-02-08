@@ -1,6 +1,6 @@
 <?php
 /*!
- * 主页模版
+ * 模版函数
  */
 
 //载入/inc 下的所有.php文件
@@ -237,18 +237,41 @@ add_filter( 'widget_tag_cloud_args', 'rhw_widget_tag_cloud_args' );
 
 //替换默认评论框字段
 function rhw_comments_fields($fields) {
-	$fields['author'] = '<div class="col-sm-4"><p><label for="author">' . __( '昵称(必填)' ) . '</label> <input class="form-control" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '"></p></div>';
+	$fields['author'] = '<div class="row"><div class="col-sm-4"><p><label for="author">' . __( '昵称(必填)' ) . '</label> <input class="form-control" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '"></p></div>';
 	$fields['email'] = '<div class="col-sm-4"><p><label for="email">' . __( '邮箱(必填)' ) . '</label> <input class="form-control" id="email" name="email" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '"></p></div>';
-	$fields['url'] = '<div class="col-sm-4"><p><label for="url">' . __( '网址(没有可不填)' ) . '</label> <input class="form-control" id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '"></p></div>';
+	$fields['url'] = '<div class="col-sm-4"><p><label for="url">' . __( '网址(没有可不填)' ) . '</label> <input class="form-control" id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '"></p></div></div>';
 	return $fields;
 }
 add_filter('comment_form_default_fields','rhw_comments_fields');
 
-//评论框后添加<hr>
-function rhw_comments_form_after() {
-	echo '<hr>';
+//评论callback
+function rhw_comment( $comment, $args, $depth ) {
+	$GLOBALS[ 'comment' ] = $comment;
+	global $post;
+	?>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+	  <article id="comment-<?php comment_ID(); ?>">
+		<?php
+		printf('<div class="comments-author">%1$s</div>',
+		get_comment_author_link() );
+		if ( '0' == $comment->comment_approved ) : ?>
+			<p><?php _e( 'Your comment is awaiting moderation.' ); ?></p>
+		<?php endif; ?>
+		<div class="comment comment-content">
+		  <?php
+		    comment_text();
+			printf( '<time class="post-meta" datetime="%1$s">%2$s</time>',
+				get_comment_time('c'),
+				sprintf( '%1$s %2$s', get_comment_date( 'y-m-d' ), get_comment_time( 'G:i' ) )
+			);
+		  ?>
+		  <?php comment_reply_link(array_merge($args, array('reply_text' => __( '回复' ), 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
+		  <?php edit_comment_link( __( '编辑' ) ); ?>
+		</div>
+	  </article>
+      
+	<?php
 }
-add_filter('comment_form_after', 'rhw_comments_form_after');
 
 //删除文章时同时删除该文章流量统计
 function rhw_delete_statistics( $postid ) {
