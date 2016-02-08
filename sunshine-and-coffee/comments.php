@@ -43,7 +43,9 @@ if ( have_comments() ) : ?>
 </div>
 <?php elseif( comments_open() ) : ?>
 <div id="respond">
-  <p>还没有评论哦~快点发表评论吧！~</p>
+  <ul>
+    <li class="comment" style="padding-bottom:0">还没有评论哦~快点发表评论吧！~</li>
+  </ul>
 </div>
 <?php endif;
 if( comments_open() ) :?>
