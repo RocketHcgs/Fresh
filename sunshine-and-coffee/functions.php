@@ -226,15 +226,6 @@ function setActive( $var ) {
 	}
 }
 
-//标签云设置
-function rhw_widget_tag_cloud_args( $args ) {
-	$args['largest'] = 1;
-	$args['smallest'] = 1;
-	$args['unit'] = 'em';
-	return $args;
-}
-add_filter( 'widget_tag_cloud_args', 'rhw_widget_tag_cloud_args' );
-
 //替换默认评论框字段
 function rhw_comments_fields($fields) {
 	$fields['author'] = '<div class="row"><div class="col-sm-4"><p><label for="author">' . __( '昵称(必填)' ) . '</label> <input class="form-control" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '"></p></div>';

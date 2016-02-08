@@ -226,6 +226,14 @@ a.edit-link {
     font-size: 16px;
 }
 
+.tagcloud {
+	padding-top:0;
+}
+
+.tagcloud a {
+	color:#777;
+}
+
 #paging_nav {
 	margin-top:0;
 	margin-bottom:0;
