@@ -42,8 +42,8 @@ get_header(); ?>
             </div>
             <?php } else {
 			echo '<div class="panel panel-default"><div class="panel-body">';
-			echo '404<br>';
-            _e( '再怎么找也没有啦⊙﹏⊙' );
+			echo '<p>再怎么找也没有啦⊙﹏⊙</p>';
+			get_search_form();
 			echo '</div></div>';
 		  }?>
       </div>
