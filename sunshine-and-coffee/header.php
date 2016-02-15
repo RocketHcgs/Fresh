@@ -14,7 +14,7 @@
   <body>
     <div id="loading" style="display:none;">
       <div class="loadcontainer">
-        <i class="fa fa-spinner fa-spin fa-5x"></i>
+        <span class="glyphicon glyphicon-hourglass glyphicon-spin glyphicon-5x"></span>
       </div>
     </div>
     <nav class="navbar navbar-custom navbar-fixed-top">

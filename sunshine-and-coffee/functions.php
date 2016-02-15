@@ -46,8 +46,6 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
 //加载css和js
 function rhw_scripts() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/src/css/bootstrap.min.css', array(), '3.3.5' );
-	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/src/css/font-awesome.css', array(), '4.5.0' );
-	
 	wp_enqueue_style( 'aplayer', get_template_directory_uri() . '/src/css/APlayer.min.css', array(), '1.0' );
 	wp_enqueue_style( 'custom', get_bloginfo('stylesheet_url'), array(), '0.1' );
 	wp_deregister_script( 'jquery' );
