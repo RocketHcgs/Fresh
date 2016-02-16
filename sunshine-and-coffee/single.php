@@ -8,7 +8,9 @@ get_header(); ?>
   <div class="row">
     <div class="col-md-8">
       <?php
-		rhw_statistics::update( 'post',get_the_ID() );
+	    if( !is_attachment() ) {
+		  rhw_statistics::update( 'post',get_the_ID() );
+		}
 		while ( have_posts() ) :
 	  ?>
       <div class="panel panel-default">
@@ -20,7 +22,7 @@ get_header(); ?>
           <h3>
 			<?php
 			  the_title();
-			  if( current_user_can('edit_post', get_the_ID()) ) {
+			  if( current_user_can('edit_post', get_the_ID()) && !is_attachment() ) {
 				printf( ' <a class="edit-link" href="%1$s">编辑</a>',get_edit_post_link( get_the_ID() ) );
 			  }
 			?>
@@ -31,7 +33,11 @@ get_header(); ?>
 		  <?php the_content(); ?>
         </div>
       </div>
-      <?php comments_template(); ?>
+      <?php
+	    if( !is_attachment() ) {
+	      comments_template();
+		}
+	  ?>
       <?php endwhile; ?>
     </div>
     <?php get_sidebar();?>
