@@ -173,18 +173,18 @@ function rhw_home_meta() {
 
 //显示文章信息
 function rhw_post_meta() {
-	printf( '<span class="post-meta"><a href="%1$s">%2$s</a> %3$s %4$s %5$s',
+	printf( '<span class="post-meta"><span class="glyphicon glyphicon-user"></span> <a href="%1$s">%2$s</a> <span class="glyphicon glyphicon-calendar"></span> %3$s <span class="glyphicon glyphicon-paperclip"></span> %4$s %5$s',
 	esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 	get_the_author(),
 	get_the_time('m-d G:i'),
 	get_the_category_list( ' ' ),
-	get_the_tag_list( '标签: ',' ' )
+	get_the_tag_list( '<span class="glyphicon glyphicon-tags"></span> ',' ' )
 	);
 	if( get_comments_number() != 0 ) {
-		printf( ' %1$s条评论', get_comments_number() );
+		printf( ' <span class="glyphicon glyphicon-comment"></span> %1$s条评论', get_comments_number() );
 	}
 	if( !is_attachment() ) {
-		printf( ' %1$s次围观</span>',rhw_statistics::get( 'post',get_the_ID() ) );
+		printf( ' <span class="glyphicon glyphicon-eye-open"></span> %1$s次围观</span>',rhw_statistics::get( 'post',get_the_ID() ) );
 	}
 }
 
