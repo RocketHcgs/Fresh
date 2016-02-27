@@ -173,13 +173,15 @@ function rhw_home_meta() {
 
 //显示文章信息
 function rhw_post_meta() {
-	printf( '<span class="post-meta"><span class="glyphicon glyphicon-user"></span> <a href="%1$s">%2$s</a> <span class="glyphicon glyphicon-calendar"></span> %3$s <span class="glyphicon glyphicon-paperclip"></span> %4$s %5$s',
+	printf( '<span class="post-meta"><span class="glyphicon glyphicon-user"></span> <a href="%1$s">%2$s</a> <span class="glyphicon glyphicon-calendar"></span> %3$s',
 	esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 	get_the_author(),
-	get_the_time('m-d G:i'),
-	get_the_category_list( ' ' ),
-	get_the_tag_list( '<span class="glyphicon glyphicon-tags"></span> ',' ' )
+	get_the_time('m-d G:i')
 	);
+	if( get_the_category_list( ' ' ) != '' ) {
+		echo ' <span class="glyphicon glyphicon-paperclip"></span> ' . get_the_category_list( ' ' );
+	}
+	echo get_the_tag_list( ' <span class="glyphicon glyphicon-tags"></span> ',' ' );
 	if( get_comments_number() != 0 ) {
 		printf( ' <span class="glyphicon glyphicon-comment"></span> %1$s条评论', get_comments_number() );
 	}
