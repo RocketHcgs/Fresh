@@ -2,12 +2,12 @@
 A simple and beautiful WordPress theme.  
 
 # DEMO  
-[RHW Home](http://www.rhw-team.com/Home)  
+[RHW Home](https://home.rhw-team.com/)  
 
 # 声明  
 本主题仅供个研究学习使用，请勿用作商业用途！
   
-![img](http://www.rhw-team.com/Home/wp-content/uploads/theme-demo.png)  
+![img](https://home.rhw-team.com/wp-content/uploads/theme-demo.png)  
 
 # 说明  
 - 使用Bootstrap框架开发  
@@ -16,4 +16,4 @@ A simple and beautiful WordPress theme.
 - 炫(la)酷(ji)的特效
 
 # LICENSE  
-MIT [RocketHcgs](http://www.rhw-team.com/)
+MIT [RHW Team](http://www.rhw-team.com/)
