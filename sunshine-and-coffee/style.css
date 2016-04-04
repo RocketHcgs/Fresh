@@ -202,6 +202,15 @@ a.edit-link {
 	height:auto;
 }
 
+code {
+	margin:0 2px;
+	padding:2px 4px;
+	font-size:100%;
+	color:#666;
+	background-color:#eee;
+	border-radius:4px;
+}
+
 #reply-title {
 	margin-top:0;
 }
