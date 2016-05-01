@@ -13,11 +13,13 @@
     <?php wp_head(); ?>
   </head>
   <body>
+    <?php if( rhw_opt::get( 'theme_loadanimation' ) == 'true' ) : ?>
     <div id="loading" style="display:none;">
       <div class="loadcontainer">
         <span class="glyphicon glyphicon-hourglass glyphicon-spin glyphicon-5x"></span>
       </div>
     </div>
+    <?php endif; ?>
     <nav class="navbar navbar-custom navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">

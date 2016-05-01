@@ -8,21 +8,21 @@ foreach ( glob( get_template_directory() . '/inc/*.php' ) as $filename ) {
   require $filename;
 }
 
-//访问统计，在启用主题时初始化数据库
+//数据库初始化（主题设置、访问统计）
 function rhw_db_setup() {
-	global $pagenow;
-	if(
-		false===is_admin()
-		|| 'themes.php'!=$pagenow
-		|| false===isset($_GET['activated'])
-	) {
-		return;
+	global $wpdb;
+	$tb1 = rhw_opt::table_name;
+	$tb2 = rhw_statistics::table_name;
+	if( $wpdb->get_var( "SHOW TABLES LIKE '$tb1'" ) != $tb1 ) {
+		rhw_opt::setup();
 	}
-	rhw_statistics::setup();
+	if( $wpdb->get_var( "SHOW TABLES LIKE '$tb2'" ) != $tb2 ) {
+		rhw_statistics::setup();
+	}
 }
-add_action( 'load-themes.php', 'rhw_db_setup' );
+add_action( 'init', 'rhw_db_setup' );
 
-//初始化
+//主题初始化
 function rhw_setup() {
 	//让WordPress处理标题
 	add_theme_support( 'title-tag' );
@@ -32,7 +32,7 @@ function rhw_setup() {
 	//注册菜单
 	register_nav_menus( array(
 		'header_menu' => __( '头部菜单' ),
-		'footer_menu'  => __( '链接' ),
+		'footer_menu'  => __( '底部链接' ),
 	) );
 }
 add_action( 'after_setup_theme', 'rhw_setup' );
@@ -48,6 +48,7 @@ function rhw_scripts() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/src/css/bootstrap.min.css', array(), '3.3.5' );
 	wp_enqueue_style( 'aplayer', get_template_directory_uri() . '/src/css/APlayer.min.css', array(), '1.0' );
 	wp_enqueue_style( 'theme-custom', get_bloginfo('stylesheet_url'), array(), '1.0' );
+	if( rhw_opt::get( 'theme_loadanimation' ) == 'true' ) wp_enqueue_style( 'theme-animation', get_template_directory_uri() . '/src/css/slidein.css', array(), '1.0' );
 	wp_enqueue_style( 'user-custom', get_template_directory_uri() . '/src/css/ui.css', array(), '1.0' );
 	wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', get_template_directory_uri() . '/src/js/jquery.min.js', array(), '2.1.4' );
@@ -73,7 +74,7 @@ function rhw_widgets_init() {
 add_action( 'widgets_init', 'rhw_widgets_init' );
 
 //去除自带导航
-add_filter('show_admin_bar', '__return_false');
+add_filter( 'show_admin_bar', '__return_false' );
 
 //显示面包屑导航
 function rhw_breadcrumbs() {
@@ -272,4 +273,4 @@ function rhw_comment( $comment, $args, $depth ) {
 function rhw_delete_statistics( $postid ) {
 	rhw_statistics::delete( 'post', $postid );
 }
-add_action('before_delete_post', 'rhw_delete_statistics');
+add_action( 'before_delete_post', 'rhw_delete_statistics' );
