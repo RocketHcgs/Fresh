@@ -9,6 +9,12 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color"content="#59524c">
+    <?php if( !empty( rhw_opt::get( 'keyword' ) ) ) : ?>
+    <meta name="keywords" content="<?php echo rhw_opt::get( 'keyword' ); ?>">
+    <?php endif;
+	if( !empty( rhw_opt::get( 'description' ) ) ) : ?>
+    <meta name="description" content="<?php echo rhw_opt::get( 'description' ); ?>">
+    <?php endif; ?>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
     <?php wp_head(); ?>
   </head>

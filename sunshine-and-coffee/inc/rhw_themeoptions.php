@@ -20,6 +20,15 @@ function rhw_themeoptions_page() {
       <tbody>
         <input type='hidden' name='rhw_themeoptions_update' value='true'>
         <tr>
+          <th>网站头部meta信息</th>
+          <td>
+            <p><label for="keyword">关键字(keyword)</label></p>
+            <p><input type="text" name="keyword" id="keyword" class="regular-text code" value="<?php echo rhw_opt::get( 'keyword' ); ?>" placeholder="留空为不设置,每个关键字之间以半角逗号隔开"></p>
+            <p><label for="description">网站描述(description)</label></p>
+            <p><textarea rows="3" name="description" id="description" class="large-text code" placeholder="留空为不设置"><?php echo rhw_opt::get( 'description' ); ?></textarea></p>
+          </td>
+        </tr>
+        <tr>
           <th>页面加载动画</th>
           <td>
             <label><input type="checkbox" id="theme_loadanimation" name="theme_loadanimation" value="1" <?php if( rhw_opt::get( 'theme_loadanimation' ) == 'true' ) echo 'checked="checked"'; ?>> 启用页面加载动画</label>
@@ -42,6 +51,8 @@ function rhw_themeoptions_page() {
 
 //设置保存
 function rhw_themeoptions_update() {
+	rhw_opt::set( 'keyword', stripslashes( $_POST['keyword'] ) );
+	rhw_opt::set( 'description', stripslashes( $_POST['description'] ) );
 	if( $_POST['theme_loadanimation'] == '1' ) {
 		rhw_opt::set( 'theme_loadanimation', 'true' );
 	} else {
@@ -75,8 +86,20 @@ class rhw_opt {
 			$rhw_tb,
 			array(
 				'id' => 1,
+				'opt_name' => 'keyword',
+				'opt_value' => ''
+		) );
+		$wpdb->insert(
+			$rhw_tb,
+			array(
+				'opt_name' => 'description',
+				'opt_value' => ''
+		) );
+		$wpdb->insert(
+			$rhw_tb,
+			array(
 				'opt_name' => 'theme_loadanimation',
-				'opt_value' => 'true'
+				'opt_value' => 'false'
 		) );
 		$wpdb->insert(
 			$rhw_tb,

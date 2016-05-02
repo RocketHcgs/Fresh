@@ -193,6 +193,18 @@ function rhw_post_meta() {
 	}
 }
 
+//搜索关键字高亮
+function rhw_search_keywords_highlight( $text ){
+	if ( is_search() ) {
+		$s = get_search_query();
+		$keys = explode(' ', $s);
+		$text = preg_replace('/(' . implode('|', $keys) . ')/iu', '<strong class="highlight">$1</strong>', $text);
+	}
+	return $text;
+}
+add_filter( 'the_title', 'rhw_search_keywords_highlight' );
+add_filter( 'the_excerpt', 'rhw_search_keywords_highlight' );
+
 //显示特色图像
 function rhw_post_thumbnail() {
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
