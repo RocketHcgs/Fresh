@@ -212,6 +212,7 @@ code {
 
 @media (max-width: 767px){
 	.float-nav {
+		z-index:999;
 		position:fixed;
 		right:10px;
 		bottom:60px;
@@ -219,6 +220,7 @@ code {
 }
 @media (min-width: 768px){
 	.float-nav {
+		z-index:999;
 		position:fixed;
 		right:20px;
 		bottom:80px;
@@ -226,6 +228,7 @@ code {
 }
 @media (min-width: 992px){
 	.float-nav {
+		z-index:999;
 		position:fixed;
 		right:40px;
 		bottom:80px;
@@ -233,6 +236,7 @@ code {
 }
 @media (min-width: 1200px){
 	.float-nav {
+		z-index:999;
 		position:fixed;
 		right:80px;
 		bottom:100px;
