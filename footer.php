@@ -45,6 +45,7 @@
         </div>
       </a>
     </div>
+    <?php echo rhw_opt::get( 'analytics_code' ); ?>
     <?php wp_footer(); ?>
   </body>
 </html>

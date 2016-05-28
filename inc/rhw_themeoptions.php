@@ -41,6 +41,13 @@ function rhw_themeoptions_page() {
             <p><textarea rows="4" name="footer_text" id="footer_text" class="large-text code" placeholder="留空为默认文字"><?php echo rhw_opt::get( 'footer_text' ); ?></textarea></p>
           </td>
         </tr>
+        <tr>
+          <th>网页统计代码</th>
+          <td>
+            <p><label for="analytics_code">插入Google Analytics、百度统计等代码</label></p>
+            <p><textarea rows="10" name="analytics_code" id="analytics_code" class="large-text code"><?php echo rhw_opt::get( 'analytics_code' ); ?></textarea></p>
+          </td>
+        </tr>
       </tbody>
     </table>
     <p class="submit"><input type='submit' name='submit' id='submit' class='button button-primary' value='保存更改'></p>
@@ -59,6 +66,7 @@ function rhw_themeoptions_update() {
 		rhw_opt::set( 'theme_loadanimation', 'false' );
 	}
 	rhw_opt::set( 'footer_text', stripslashes( $_POST['footer_text'] ) );
+	rhw_opt::set( 'analytics_code', stripslashes( $_POST['analytics_code'] ) );
 }
 
 
@@ -105,6 +113,12 @@ class rhw_opt {
 			$rhw_tb,
 			array(
 				'opt_name' => 'footer_text',
+				'opt_value' => ''
+		) );
+		$wpdb->insert(
+			$rhw_tb,
+			array(
+				'opt_name' => 'analytics_code',
 				'opt_value' => ''
 		) );
 	}
