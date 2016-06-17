@@ -2,16 +2,6 @@
  * 特效CSS
  */
 
-@-webkit-keyframes SlideIn {
-	0%, 25% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(200%); transform: translateZ(-500px) translateX(200%); }
-	75% { opacity: .5; -webkit-transform: translateZ(-500px); transform: translateZ(-500px); }
-	100% { opacity: 1; -webkit-transform: translateZ(0) translateX(0); transform: translateZ(0) translateX(0); }
-}
-@keyframes SlideIn {
-	0%, 25% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(200%); transform: translateZ(-500px) translateX(200%); }
-	75% { opacity: .5; -webkit-transform: translateZ(-500px); transform: translateZ(-500px); }
-	100% { opacity: 1; -webkit-transform: translateZ(0) translateX(0); transform: translateZ(0) translateX(0); }
-}
 @-webkit-keyframes glyphicon-spin {
 	0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
 	100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}
@@ -19,17 +9,6 @@
 @keyframes glyphicon-spin {
 	0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
 	100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}
-}
-
-body {
-	overflow-x:hidden;
-}
-.container {
-	perspective:1200px;
-}
-.row {
-	animation:SlideIn 0.5s;
-	-webkit-animation:SlideIn 0.5s;
 }
 
 #loading {

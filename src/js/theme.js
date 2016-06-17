@@ -2,21 +2,9 @@
  * Javascript
  */
 
-//离开和进入页面时改变title
-var OriginTitile = document.title;
-document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-        document.title = '(>_<)我藏好了哦~';
-    }
-    else {
-        document.title = OriginTitile;
-    }
-});
-
 $(function(){
 	//页面加载特效
-	$('#loading').show();
-	$('#loading').fadeOut(1000);
+	$('#loading').fadeOut(800);
 	//小工具样式
 	var Sidebar		= $('#mainsidebar'),
 		Widget		= Sidebar.find('.widget'),
@@ -40,6 +28,15 @@ $(function(){
 			$('body,html').animate({scrollTop:0},1000);
 		} else {
 			$('body,html').animate({scrollTop:$(document).height()},1000);
+		}
+	});
+	//离开和进入页面时改变title
+	var OriginTitile = document.title;
+	document.addEventListener('visibilitychange', function() {
+		if (document.hidden) {
+			document.title = '(>_<)我藏好了哦~';
+		} else {
+			document.title = OriginTitile;
 		}
 	});
 });
