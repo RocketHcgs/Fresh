@@ -14,7 +14,7 @@ function rhw_themeoptions_page() {
 	if( $_POST['rhw_themeoptions_update'] == 'true' ) { rhw_themeoptions_update(); }
 ?>
 <div class="wrap">
-  <h1>Sunshine and coffee主题设置</h1>
+  <h1>Fresh主题设置</h1>
   <form method='POST' action=''>
     <table class="form-table">
       <tbody>

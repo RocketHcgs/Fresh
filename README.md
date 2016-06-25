@@ -1,4 +1,4 @@
-# Sunshine and coffee  
+﻿# Fresh  
 A simple and beautiful WordPress theme.  
 
 # DEMO  

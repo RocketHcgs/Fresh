@@ -1,10 +1,10 @@
 /*
-Theme Name: Sunshine and coffee
+Theme Name: Fresh
 Theme URI: https://home.rhw-team.com/
 Author: RHW Team
 Author URI: http://www.rhw-team.com/
 Description: Simple,and beautiful.
-Version: 1.1
+Version: 1.2
 Tags: responsive, white, bootstrap
 */
 
@@ -41,6 +41,8 @@ a.header-link:link , a.header-link:visited , a.header-link:hover , a.header-link
 }
 .navbar-custom .navbar-nav > li > a {
   color: #fff;
+  -webkit-transition:color .3s;
+  transition:color .3s;
 }
 .navbar-custom .navbar-nav > li > a:hover,
 .navbar-custom .navbar-nav > li > a:focus {
@@ -88,6 +90,8 @@ a.header-link:link , a.header-link:visited , a.header-link:hover , a.header-link
   }
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
     color: #fff;
+	-webkit-transition:color .3s;
+    transition:color .3s;
   }
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -253,6 +257,12 @@ code {
     height: 42px;
 	border:1px solid #ddd;
 	border-radius:4px;
+	-webkit-transition:background .3s,color .3s;
+	transition:background .3s,color .3s;
+}
+.float-nav-li:hover {
+	background:#888;
+	color:#f9f9f9;
 }
 
 .footer-div {
