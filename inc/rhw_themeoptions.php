@@ -20,12 +20,19 @@ function rhw_themeoptions_page() {
       <tbody>
         <input type='hidden' name='rhw_themeoptions_update' value='true'>
         <tr>
-          <th>网站头部meta信息</th>
+          <th>头部meta信息</th>
           <td>
             <p><label for="keyword">关键字(keyword)</label></p>
             <p><input type="text" name="keyword" id="keyword" class="regular-text code" value="<?php echo rhw_opt::get( 'keyword' ); ?>" placeholder="留空为不设置,每个关键字之间以半角逗号隔开"></p>
             <p><label for="description">网站描述(description)</label></p>
             <p><textarea rows="3" name="description" id="description" class="large-text code" placeholder="留空为不设置"><?php echo rhw_opt::get( 'description' ); ?></textarea></p>
+          </td>
+        </tr>
+        <tr>
+          <th>头部代码</th>
+          <td>
+            <p><label for="head_code">在这里添加的代码将被加入&lt;head&gt;&lt;/head&gt;之间</label></p>
+            <p><textarea rows="5" name="head_code" id="head_code" class="large-text code"><?php echo rhw_opt::get( 'head_code' ); ?></textarea></p>
           </td>
         </tr>
         <tr>
@@ -60,6 +67,7 @@ function rhw_themeoptions_page() {
 function rhw_themeoptions_update() {
 	rhw_opt::set( 'keyword', stripslashes( $_POST['keyword'] ) );
 	rhw_opt::set( 'description', stripslashes( $_POST['description'] ) );
+	rhw_opt::set( 'head_code', stripslashes( $_POST['head_code'] ) );
 	if( $_POST['theme_loadanimation'] == '1' ) {
 		rhw_opt::set( 'theme_loadanimation', 'true' );
 	} else {
@@ -90,37 +98,6 @@ class rhw_opt {
 		$wpdb->query( "
 			ALTER TABLE `$rhw_tb` ADD UNIQUE(`opt_name`);
 		" );
-		$wpdb->insert(
-			$rhw_tb,
-			array(
-				'id' => 1,
-				'opt_name' => 'keyword',
-				'opt_value' => ''
-		) );
-		$wpdb->insert(
-			$rhw_tb,
-			array(
-				'opt_name' => 'description',
-				'opt_value' => ''
-		) );
-		$wpdb->insert(
-			$rhw_tb,
-			array(
-				'opt_name' => 'theme_loadanimation',
-				'opt_value' => 'false'
-		) );
-		$wpdb->insert(
-			$rhw_tb,
-			array(
-				'opt_name' => 'footer_text',
-				'opt_value' => ''
-		) );
-		$wpdb->insert(
-			$rhw_tb,
-			array(
-				'opt_name' => 'analytics_code',
-				'opt_value' => ''
-		) );
 	}
 	//读取设置
 	public function get( $opt ) {
@@ -133,13 +110,23 @@ class rhw_opt {
 	public function set( $opt, $var ) {
 		global $wpdb;
 		$rhw_tb = $wpdb->prefix . self::table_name;
-		$wpdb->update(
-			$rhw_tb,
-			array(
-				'opt_value' => $var
-			),
-			array(
-				'opt_name' => $opt
-		) );
+		$check = $wpdb->get_var( "SELECT opt_value FROM $rhw_tb WHERE opt_name='$opt'" );
+		if( isset($check) ) {
+			$wpdb->update(
+				$rhw_tb,
+				array(
+					'opt_value' => $var
+				),
+				array(
+					'opt_name' => $opt
+			) );
+		} else {
+			$wpdb->insert(
+				$rhw_tb, 
+				array(
+					'opt_name' => $opt,
+					'opt_value' => $var
+			) );
+		}
 	}
 }

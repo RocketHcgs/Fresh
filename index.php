@@ -35,7 +35,7 @@ get_header(); ?>
               </div>
             </div>
 			<?php endwhile; ?>
-			<div class="panel panel-default">
+			<div class="panel panel-default post">
               <div class="panel-body">
                 <?php rhw_paging_nav(); ?>
               </div>

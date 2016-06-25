@@ -46,18 +46,22 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
 //加载css和js
 function rhw_scripts() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/src/css/bootstrap.min.css', array(), '3.3.5' );
-	wp_enqueue_style( 'aplayer', get_template_directory_uri() . '/src/css/APlayer.min.css', array(), '1.0' );
 	wp_enqueue_style( 'theme-custom', get_bloginfo('stylesheet_url'), array(), '1.0' );
-	if( rhw_opt::get( 'theme_loadanimation' ) == 'true' ) wp_enqueue_style( 'theme-animation', get_template_directory_uri() . '/src/css/slidein.css', array(), '1.0' );
+	if( rhw_opt::get( 'theme_loadanimation' ) == 'true' ) wp_enqueue_style( 'theme-animation', get_template_directory_uri() . '/src/css/load.css', array(), '1.0' );
 	wp_enqueue_style( 'user-custom', get_template_directory_uri() . '/src/css/ui.css', array(), '1.0' );
 	wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', get_template_directory_uri() . '/src/js/jquery.min.js', array(), '2.1.4' );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/src/js/bootstrap.min.js', array( 'jquery' ), '3.3.5' );
-	wp_enqueue_script( 'aplayer', get_template_directory_uri() . '/src/js/APlayer.min.js', array(), '1.0' );
 	wp_enqueue_script( 'theme-custom', get_template_directory_uri() . '/src/js/theme.js', array( 'jquery' ), '1.0' );
 	wp_enqueue_script( 'user-custom', get_template_directory_uri() . '/src/js/ui.js', array(), '1.0' );
 }
 add_action( 'wp_enqueue_scripts', 'rhw_scripts' );
+
+//自定义头部代码
+function rhw_head_code() {
+	echo rhw_opt::get( 'head_code' );
+}
+add_action( 'wp_head', 'rhw_head_code' );
 
 //注册小工具区域
 function rhw_widgets_init() {
