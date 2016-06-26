@@ -19,14 +19,14 @@ get_header(); ?>
       <?php
           if ( have_posts() ) {
             while ( have_posts() ) : the_post(); ?>
-            <div class="panel panel-default">
+            <div class="panel panel-default post">
+              <h4>
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                <?php if ( is_sticky() && is_home() && ! is_paged() ) {
+			    echo '<span class="label top-post">置顶</span>';
+		        } ?>
+              </h4>
               <div class="panel-body">
-                <h4>
-                  <?php if ( is_sticky() && is_home() && ! is_paged() ) {
-			      echo '<span class="label label-primary">置顶</span>';
-		          } ?>
-                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </h4>
 			  <?php
 			    rhw_post_meta();
 			    the_excerpt();
@@ -35,7 +35,7 @@ get_header(); ?>
               </div>
             </div>
 			<?php endwhile; ?>
-			<div class="panel panel-default post">
+			<div class="panel panel-default">
               <div class="panel-body">
                 <?php rhw_paging_nav(); ?>
               </div>
