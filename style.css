@@ -129,7 +129,7 @@ a.header-link:hover {
 }
 
 .panel-default {
-	border-color:transparent;
+	border-color:#f5f5f5;
 	box-shadow:0 2px 4px rgba(0,0,0,.15);
 }
 
