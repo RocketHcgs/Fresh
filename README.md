@@ -4,7 +4,7 @@ A simple and beautiful WordPress theme.
 # DEMO  
 [RHW Home](https://home.rhw-team.com/)  
   
-![img](https://home.rhw-team.com/wp-content/uploads/theme-demo.png)  
+![img](https://www.rhw-team.com/cloud/pics/theme-demo.png)  
 
 # 特性  
 - 使用Bootstrap框架开发  
