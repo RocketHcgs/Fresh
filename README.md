@@ -18,5 +18,5 @@ A simple and beautiful WordPress theme.
 # 声明  
 本主题仅供个研究学习使用，请勿用作商业用途！
 
-# LICENSE  
-GNU GPL v3.0 [RHW Team](http://www.rhw-team.com/)
+# Author  
+© [RHW Team](http://www.rhw-team.com/), Released under the MIT License.
