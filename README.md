@@ -19,4 +19,4 @@ A simple and beautiful WordPress theme.
 本主题仅供个研究学习使用，请勿用作商业用途！
 
 # LICENSE  
-MIT [RHW Team](http://www.rhw-team.com/)
+GNU GPL v3.0 [RHW Team](http://www.rhw-team.com/)
