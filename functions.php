@@ -180,10 +180,11 @@ function rhw_home_meta() {
 
 //显示文章信息
 function rhw_post_meta() {
+	$t = ( get_the_time( 'Y' ) == date( 'Y' ) ) ? get_the_time( 'm-d G:i' ) : get_the_time( 'Y-m-d G:i' );
 	printf( '<span class="post-meta"><span class="glyphicon glyphicon-user"></span> <a href="%1$s">%2$s</a> <span class="glyphicon glyphicon-calendar"></span> %3$s',
 	esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 	get_the_author(),
-	get_the_time('m-d G:i')
+	$t
 	);
 	if( get_the_category_list( ' ' ) != '' ) {
 		echo ' <span class="glyphicon glyphicon-paperclip"></span> ' . get_the_category_list( ' ' );
