@@ -231,7 +231,7 @@ function rhw_paging_nav(){
 	echo '</ul>';
 }
 function setActive( $var ) {
-	if( substr( $var , 0 , 5 ) == '<span' ) {
+	if( strpos( $var , 'current' ) != false ) {
 		echo 'active';
 	}
 }
