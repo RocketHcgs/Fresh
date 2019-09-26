@@ -2,9 +2,9 @@
 A simple and beautiful WordPress theme.  
 
 # DEMO  
-[RHW Home](https://home.rhw-team.com/)  
+[Rock's Blog](https://rockethcgs.me/)  
   
-![img](https://www.rhw-team.com/cloud/pics/theme-demo.png)  
+![img](https://rockethcgs.me/cloud/pics/theme-demo.png)  
 
 # 特性  
 - 使用Bootstrap框架开发  
@@ -19,4 +19,4 @@ A simple and beautiful WordPress theme.
 本主题仅供个研究学习使用，请勿用作商业用途！
 
 # Author  
-© [RHW Team](http://www.rhw-team.com/), Released under the MIT License.
+© [RocketHcgs](https://rockethcgs.me/), Released under the MIT License.
