@@ -51,7 +51,7 @@ function rhw_themeoptions_page() {
         <tr>
           <th>访问统计代码</th>
           <td>
-            <p><label for="analytics_code">插入Google Analytics、百度统计等代码</label></p>
+            <p><label for="analytics_code">插入Google Analytics、百度统计等代码（默认插入文档最底部）</label></p>
             <p><textarea rows="10" name="analytics_code" id="analytics_code" class="large-text code"><?php echo rhw_opt::get( 'analytics_code' ); ?></textarea></p>
           </td>
         </tr>
