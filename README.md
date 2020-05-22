@@ -3,8 +3,6 @@ A simple and beautiful WordPress theme.
 
 # DEMO  
 [Rock's Blog](https://rockethcgs.me/)  
-  
-![img](https://rockethcgs.me/cloud/pics/theme-demo.png)  
 
 # 特性  
 - 使用Bootstrap框架开发  
